@@ -1,0 +1,17 @@
+﻿@model AerLingus.Models.JourneySegment
+@{
+    ViewBag.Title = "Segments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details: </h2>
+<p>Ticket Number: @(Model.ticketNo == null ? "-" : Model.ticketNo)</p>
+<p>Coupon No: @Model.couponNo</p>
+<p>Departure Date: @Model.departureDate</p>
+<p>Origin: @(Model.origin == null ? "-" : Model.origin)</p>
+<p>Destination: @(Model.destination == null ? "-" : Model.destination)</p>
+
+<div>
+    @Html.ActionLink("Back to List", "SearchJourney", "Journey", new { @class = "btn btn-success" })
+</div>
+

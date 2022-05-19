@@ -1,0 +1,124 @@
+﻿@model AerLingus.Models.JourneySegment
+@{
+    ViewBag.Title = "JourneySegmentForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="naslov" style="padding-left:2px;"> Add a JourneySegment</h2>
+@using (Html.BeginForm("AddJourneySegment", "JourneySegments"))
+{
+
+    <div class="Formular">
+        <div class="obaveznaPolja">
+            <div class="form-group">
+                @Html.LabelFor(js => js.TicketNo)
+                @Html.TextBoxFor(js => js.TicketNo, new { @class = "form-control", style = "width:300px" })
+                @Html.ValidationMessageFor(j => j.TicketNo)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(js => js.couponNo)
+                @Html.TextBoxFor(j => j.couponNo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(j => j.couponNo)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(j => j.origin)
+                @Html.TextBoxFor(j => j.origin, new { @class = "form-control" })
+                @Html.ValidationMessageFor(j => j.origin)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(j => j.destination)
+                @Html.TextBoxFor(j => j.destination, new { @class = "form-control" })
+                @Html.ValidationMessageFor(j => j.destination)
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(j => j.departureDate)
+                <div class"form-group>
+                    @Html.EditorFor(j => j.departureDate, new { htmlAttributes = new { @class = "datepicker1 form-control", type = "text", autocomplete = "off" } })
+                    @*<input type="date" style="border: 1.25px solid #26aabd; border-radius: 5px; padding: 5px; width: 500px;" />*@
+
+                </div>
+                @Html.ValidationMessageFor(j => j.departureDate, "", new { id = "idValidacija" })
+            </div>
+
+
+
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Save</button>
+    </div>
+
+
+    @section scripts {
+
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Scripts/jquery-ui.min.js"></script>
+        @*<script>
+                $(function () {
+                    $(".datepicker").datepicker({
+                        dateFormat: "yy-mm-dd",
+                        changeMonth: true,
+                        changeYear: true,
+                        yearRange: "-10:+10",
+                        showOn: "both",
+                        timeFormat:"HH:mm:ss",
+                        buttonText: "<i class='fa fa-calendar' style='font - size:74x'></i>"
+
+                    })
+                })
+            </script>*@
+        <script>
+        $(function () {
+            $(".datepicker1").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-10:+10",
+                showOn: "both",
+                buttonText: "<i class='fa fa-calendar' style='font - size:74x'></i>"
+
+            })
+        })
+        </script>
+
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+        <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(function () {
+                $(".datepicker").datetimepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-10:+10",
+                    dateFormat: 'yy-mm-dd',
+                    controlType: 'select',
+                    showOn: "both",
+                    buttonText: "<i class='fa fa-calendar' style='font - size:74x'></i>",
+                    timeFormat: 'HH:mm:ss'
+
+                });
+
+            });
+
+            jQuery.validator.methods.date = function (value, element) {
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if (isChrome) {
+                    var d = new Date();
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                } else {
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
+
+        });
+
+        </script>
+    }
+
+}

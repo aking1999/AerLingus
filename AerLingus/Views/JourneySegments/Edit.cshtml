@@ -1,0 +1,53 @@
+﻿@model AerLingus.Models.JourneySegment
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Formular">
+
+    <h2 class="naslov">Edit Journey Segment</h2>
+
+    @using (Html.BeginForm("EditJourneySegment", "JourneySegments", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @*@Html.AntiForgeryToken()*@
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="obaveznaPolja">
+                <div class="form-group">
+                    @Html.LabelFor(j=>j.couponNo)
+                    @Html.TextBoxFor(j => j.couponNo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.couponNo)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.origin)
+                    @Html.TextBoxFor(j => j.origin, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.origin, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.destination)
+                    @Html.TextBoxFor(j => j.destination, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.destination, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.departureDate)
+                    @Html.TextBoxFor(j => j.departureDate, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.departureDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    }
+    <div>
+    @*    @Html.ActionLink("Back", "JourneySegmentDetails", "Journey", new { id = Model.ID } , new { @class = "btn btn-success" })*@
+    </div>
+
+</div>
+

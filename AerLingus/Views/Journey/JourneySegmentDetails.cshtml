@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AerLingus.Models.JourneySegment>
+@{
+    ViewBag.Title = "JourneySegments";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (!Model.Any())
+{
+    <h1>Selected journey has no segments.</h1>
+}
+else
+{
+    <h2>Journey Segment Details</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Ticket Number</th>
+                <th>Coupon Number</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Departure Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var js in Model)
+            {
+            <tr>
+                <td>@js.TicketNo</td>
+                <td>@js.couponNo</td>
+                <td>@js.origin</td>
+                <td>@js.destination</td>
+                <td>@js.departureDate</td>
+                <td>
+                    
+                @Html.ActionLink("Edit", "Edit", "JourneySegments", new { id = js.ID }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", "JourneySegments", new { id = js.ID}, new { @class = "btn btn-success" })
+                       
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+

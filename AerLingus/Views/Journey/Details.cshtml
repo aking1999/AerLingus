@@ -1,0 +1,17 @@
+﻿@model AerLingus.Models.Journey
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details: </h2>
+<p>First Name: @Model.FirstName</p>
+<p>Last Name: @Model.LastName</p>
+<p>Ticket Number: @(Model.TicketNo== null ? "-" : Model.TicketNo)</p>
+<p>Identifier Number: @(Model.IdentifierNo == null ? "-" : Model.IdentifierNo)</p>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", "Journey", new { id = Model.ID }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Delete", "Delete", "Journey", new { id = Model.ID }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Back to List", "SearchJourney", "Journey", new { @class = "btn btn-success" })
+</div>

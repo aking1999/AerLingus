@@ -1,0 +1,45 @@
+﻿@model AerLingus.Models.Journey
+@{
+    ViewBag.Title = "JourneyForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="naslov" style="padding-left:2px;"> Add a Journey</h2>
+@using (Html.BeginForm("AddJourney", "Journey"))
+{
+    
+<div class="Formular">
+    <div class="obaveznaPolja">
+        <div class="form-group">
+            @Html.LabelFor(j => j.IdentifierNo)
+            @Html.TextBoxFor(j => j.IdentifierNo, new { @class = "form-control", style = "width:300px" })
+            @Html.ValidationMessageFor(j => j.IdentifierNo)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(j => j.TicketNo)
+            @Html.TextBoxFor(j => j.TicketNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(j => j.TicketNo)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(j => j.FirstName)
+            @Html.TextBoxFor(j => j.FirstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(j => j.FirstName)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(j => j.LastName)
+            @Html.TextBoxFor(j => j.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(j => j.LastName)
+        </div>
+
+    </div>
+
+    <div>
+        <br></br>
+    </div>
+    <button type="submit" class="btn btn-success" >Save</button>
+</div>
+    }
+

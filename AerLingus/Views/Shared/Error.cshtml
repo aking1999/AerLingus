@@ -1,0 +1,14 @@
+﻿@model Object
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<link rel="stylesheet" href="~/Content/CenterErrorButton.css" />
+
+@*<h1 class="text-danger">Error.</h1>*@
+<h2 class="text-danger" style="text-align:center"><b>@Model</b></h2>
+
+<div class="wrapper">
+    @Html.ActionLink("Back", "Index", "Home", new object(), new { @class = "btn btn-danger", @style = "width:70px;" })
+</div>

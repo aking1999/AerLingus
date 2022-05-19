@@ -1,0 +1,343 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #f3f0ee;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.field-validation-error{
+
+    color:red;
+    
+}
+.input-validation-error {
+    
+    border: 1.25px solid red ;
+}
+
+#identifierNo{
+    border: 1.25px solid #26aabd; 
+
+}
+
+#transactionType {
+    border: 1.25px solid #26aabd;
+}
+#otherFFPNo {
+    border: 1.25px solid #26aabd;
+}
+#otherFFPScheme {
+    border: 1.25px solid #26aabd;
+}
+
+#firstName {
+    border: 1.25px solid #26aabd;
+}
+
+#lastName {
+    border: 1.25px solid #26aabd;
+}
+#partnerTransactionNo {
+    border: 1.25px solid #26aabd;
+}
+#bookingDate {
+    border: 1.25px solid #26aabd;
+}
+#departureDate {
+    border: 1.25px solid #26aabd;
+}
+#origin {
+    border: 1.25px solid #26aabd;
+}
+#externalPaxID {
+    border: 1.25px solid #26aabd;
+}
+#cabinClass {
+    border: 1.25px solid #26aabd;
+}
+#destination {
+    border: 1.25px solid #26aabd;
+}
+#bookingClass {
+    border: 1.25px solid #26aabd;
+}
+#marketingFlightNo {
+    border: 1.25px solid #26aabd;
+}
+#marketingAirline {
+    border: 1.25px solid #26aabd;
+}
+#operatingFlightNo {
+    border: 1.25px solid #26aabd;
+}
+#operatingAirline {
+    border: 1.25px solid #26aabd;
+}
+#ticketNo {
+    border: 1.25px solid #26aabd;
+}
+#externalPaxId {
+    border: 1.25px solid #26aabd;
+}
+#couponNo {
+    border: 1.25px solid #26aabd;
+}
+#pnrNo {
+    border: 1.25px solid #26aabd;
+}
+#distance {
+    border: 1.25px solid #26aabd;
+}
+#fareBasis {
+    border: 1.25px solid #26aabd;
+}
+#discountBase {
+    border: 1.25px solid #26aabd;
+}
+#exciseTax {
+    border: 1.25px solid #26aabd;
+}
+#customerType {
+    border: 1.25px solid #26aabd;
+}
+#promotionCode {
+    border: 1.25px solid #26aabd;
+}
+#ticketCurrency {
+    border: 1.25px solid #26aabd;
+}
+#baseFare {
+    border: 1.25px solid #26aabd;
+}
+
+
+#targetCurrency {
+    border: 1.25px solid #26aabd;
+}
+#exchangeRate {
+    border: 1.25px solid #26aabd;
+}
+#fareBase {
+    border: 1.25px solid #26aabd;
+}
+
+.btn {
+    background-color: #26aabd;
+   
+}
+
+.btn:hover {
+    background-color: #1f8d9d;
+}
+
+.btn:active {
+    background: #26aabd !important;
+}
+
+.datepicker1 {
+    display:inline-flex;
+}
+
+.datepicker {
+    display: inline-flex;
+}
+
+.Formular{
+    display: inline-block;
+}
+.Upload {
+    display: inline-block;
+    padding: 0px 50px ;
+    margin: 0 200px 0 100px;
+    position: absolute;
+}
+#fileupload {
+	position: fixed;
+	margin: 0px;
+}
+#draganddrop{
+    position:static;
+}
+.dropzone{
+	padding: 50px 50px !important;
+	background-color: lightgray !important;
+	border: solid !important;
+	border-color: darkgray !important;
+	border-radius: 10px !important;
+	border-width : 1px !important;
+	color: dimgray;
+}
+#mydrop {
+	position: fixed;
+	margin: 280px 0;
+
+}
+
+.form-group{
+    width:auto;
+}
+
+.form-group #file {
+	display: inline-block;
+}
+
+.form-group #dugmeSubmit {
+	background-color: #26aabd;
+	color: white;
+	font-weight: 500;
+	padding: 5px 15px;
+	border:none;
+	border-radius: 5px;
+}
+	.form-group #dugmeSubmit:hover {
+		background-color: #1f8d9d;
+	}
+	.form-group #dugmeSubmit:active {
+		background: #26aabd !important;
+	}
+
+.naslov {
+    padding-bottom: 30px;
+}
+.drugiNaslov{
+	padding-bottom:10px;
+	padding-top:90px;
+}
+.obaveznaPolja {
+    border: solid;
+    border-color: #26aabd;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.neobaveznaPolja {
+	border: solid;
+	border-color: #26aabd;
+	border-width: 2px;
+	padding: 20px;
+	margin: 20px 0;
+	border-radius: 10px;
+}
+#ExportSection {
+    margin: 10px 0;
+    float: left;
+    text-decoration: none;
+    padding: 35px 5px;
+}
+.lista {
+    border: solid;
+    border-color: #26aabd;
+    border-width: 2px;
+    padding: 20px;
+    margin: 20px 0;
+    /*border-radius: 10px;*/
+ 
+    overflow-y: scroll;
+    height: 815px;
+    width: 800px;
+}
+.dugme {
+    float: left;
+    margin: 20px 0;
+    /*background-color: #26aabd;*/
+    border-color: #4cae4c;
+}
+.dugme2 {
+    float: right;
+    margin: 20px 0;
+   
+}
+
+.drugo {
+    background-color: #26aabd;
+    border-radius: 4px;
+    color: white;
+    height: 30px;
+    width: 120px;
+}
+
+
+.prvo {
+    background-color: #26aabd;
+    border-radius: 4px;
+    color: white;
+    height: 30px;
+    width: 120px;
+}
+.trece {
+    float: left;
+    background-color: #26aabd;
+    border-radius: 4px;
+    color: white;
+    border:none;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+.trece1 {
+    margin-left: 20px;
+    float: left;
+    background-color: #26aabd;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.trece:hover {
+    opacity: 20;
+}
+
+.trece1:hover {
+    opacity: 20;
+}
+
+.hl {
+    margin-top: 20px;
+}
+
+.dugmence{
+    /*position:relative;*/
+    /*left:4.5%;*/
+  
+
+}
+.BackToList {
+    position: relative;
+   
+}
+.DeleteDugme {
+    position: relative;
+   
+    padding-top:15px;
+}
+
+.col-md-1{
+    margin-right:20px !important; 
+}
+
+#EditDugme{
+    margin-right:3.5px !important;
+}
+
+
+

@@ -1,0 +1,21 @@
+﻿@model AerLingus.Models.JourneySegment
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Record:</h2>
+
+<p>CouponNo: @Model.couponNo</p>
+<p>Origin: @Model.origin</p>
+<p>Destination: @Model.destination</p>
+<p>Departure date: @Model.departureDate</p>
+
+<div class="row">
+    <div class="col-sm-1">
+        @Html.ActionLink("Delete", "DeleteJourneySegment", "JourneySegments", new { id = Model.ID }, new { @class = "btn btn-success", style = "width:90px" })
+    </div>
+    @*<div class="col-sm-1">
+        @Html.ActionLink("Back to List", "SearchJourney", "Journey", new object(), new { @class = "btn btn-success" })
+    </div>*@
+</div>

@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Record:</h2>
+<p>First Name: @Model.firstName</p>
+<p>Last Name: @Model.lastName</p>
+<p>Identifier Number: @(Model.identifierNo == null ? "-" : Model.identifierNo)</p>
+<p>Transaction Type: @(Model.transactionType == null ? "-" : Model.transactionType)</p>
+<p>Other FFP Number: @(Model.otherFFPNo == null ? "-" : Model.otherFFPNo)</p>
+<p>Other FFP Scheme: @(Model.otherFFPScheme == null ? "-" : Model.otherFFPScheme)</p>
+<p>Partner Transaction Number: @(Model.partnerTransactionNo == null ? "-" : Model.partnerTransactionNo)</p>
+<p>Booking  Date: @(Model.bookingDate == null ? "-" : Model.bookingDate.ToString())</p>
+<p>Departure Date: @Model.departureDate</p>
+<p>Origin: @Model.origin</p>
+<p>Destination: @Model.destination</p>
+<p>Booking Class: @Model.bookingClass</p>
+<p>Cabin Class: @(Model.cabinClass == null ? "-" : Model.cabinClass)</p>
+<p>Marketing Flight Number: @Model.marketingFlightNo</p>
+<p>Marketing Airline: @Model.marketingAirline</p>
+<p>Operating Flight Number: @Model.operatingFlightNo</p>
+<p>Operating Airline: @Model.operatingAirline</p>
+<p>External Pax ID: @(Model.externalPaxID == null ? "-" : Model.externalPaxID)</p>
+<p>Ticket Number: @(Model.ticketNo == null ? "-" : Model.ticketNo)</p>
+<p>Coupon Number: @(Model.couponNo == null ? "-" : Model.couponNo)</p>
+<p>PNR Number: @Model.pnrNo</p>
+<p>Distance: @(Model.distance == null ? "-" : Model.distance.ToString())</p>
+<p>Base Fare: @(Model.baseFare == null ? "-" : Model.baseFare.ToString())</p>
+<p>Discount Base: @(Model.discountBase == null ? "-" : Model.discountBase.ToString())</p>
+<p>Excise Tax: @(Model.exciseTax == null ? "-" : Model.exciseTax.ToString())</p>
+<p>Customer Type: @(Model.customerType == null ? "-" : Model.customerType)</p>
+<p>Promotion Code: @(Model.promotionCode == null ? "-" : Model.promotionCode)</p>
+<p>Ticket Currency: @(Model.ticketCurrency == null ? "-" : Model.ticketCurrency)</p>
+<p>Target Currency: @(Model.targetCurrency == null ? "-" : Model.targetCurrency)</p>
+<p>Exchange Rate: @(Model.exchangeRate == null ? "-" : Model.exchangeRate.ToString())</p>
+<p>Fare Basis: @(Model.fareBasis == null ? "-" : Model.fareBasis)</p>
+
+<div class="row">
+    <div class="col-sm-1">
+        @Html.ActionLink("Delete", "DeleteFlightRecord", "FlightRecords", new { id = Model.ID }, new { @class = "btn btn-success", style = "width:90px" })
+    </div>
+    <div class="col-sm-1">
+        @Html.ActionLink("Back to List", "SearchFlightRecords", "FlightRecords", new object(), new { @class = "btn btn-success" })
+    </div>
+</div>
+
+@*<div>
+        @Html.ActionLink("Delete", "DeleteFlightRecord", "FlightRecords")
+
+    </div>*@
+

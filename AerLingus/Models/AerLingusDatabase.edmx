@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AerLingus_databaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AerLingus_database.dbo.DeletedRecords' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DeletedRecords">
+          <Key>
+            <PropertyRef Name="IDDelete" />
+          </Key>
+          <Property Name="Datum" Type="datetime" />
+          <Property Name="Komentar" Type="nvarchar" MaxLength="500" />
+          <Property Name="identfierNo" Type="nvarchar" MaxLength="16" />
+          <Property Name="transactionType" Type="nvarchar" MaxLength="2" />
+          <Property Name="otherFFPNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="otherFFPScheme" Type="nvarchar" MaxLength="30" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="30" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="30" />
+          <Property Name="partnerTransactionNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="bookingDate" Type="datetime" />
+          <Property Name="departureDate" Type="date" />
+          <Property Name="origin" Type="nvarchar" MaxLength="3" />
+          <Property Name="destination" Type="nvarchar" MaxLength="3" />
+          <Property Name="bookingClass" Type="nvarchar" MaxLength="2" />
+          <Property Name="cabinClass" Type="nvarchar" MaxLength="2" />
+          <Property Name="marketingFlightNo" Type="nvarchar" MaxLength="4" />
+          <Property Name="marketingAirline" Type="nvarchar" MaxLength="2" />
+          <Property Name="operatingFlightNo" Type="nvarchar" MaxLength="4" />
+          <Property Name="operatingAirline" Type="nvarchar" MaxLength="2" />
+          <Property Name="ticketNo" Type="nvarchar" MaxLength="14" />
+          <Property Name="externalPaxID" Type="nvarchar" MaxLength="25" />
+          <Property Name="couponNo" Type="nvarchar" MaxLength="2" />
+          <Property Name="pnrNo" Type="nvarchar" MaxLength="6" />
+          <Property Name="distance" Type="bigint" />
+          <Property Name="baseFare" Type="float" />
+          <Property Name="discountBase" Type="float" />
+          <Property Name="exciseTax" Type="float" />
+          <Property Name="customerType" Type="nvarchar" MaxLength="1" />
+          <Property Name="promotionCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="ticketCurrency" Type="nvarchar" MaxLength="3" />
+          <Property Name="targetCurrency" Type="nvarchar" MaxLength="3" />
+          <Property Name="exchangeRate" Type="float" />
+          <Property Name="fareBasis" Type="nvarchar" MaxLength="10" />
+          <Property Name="IDDelete" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Flight_Records">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="identifierNo" Type="nvarchar" MaxLength="16" />
+          <Property Name="transactionType" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="otherFFPNo" Type="nvarchar" MaxLength="30" />
+          <Property Name="otherFFPScheme" Type="nvarchar" MaxLength="30" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="30" />
+          <Property Name="partnerTransactionNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="bookingDate" Type="datetime" />
+          <Property Name="departureDate" Type="date" Nullable="false" />
+          <Property Name="origin" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="destination" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="bookingClass" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="cabinClass" Type="nvarchar" MaxLength="1" />
+          <Property Name="marketingFlightNo" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="marketingAirline" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="operatingFlightNo" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="operatingAirline" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="ticketNo" Type="nvarchar" MaxLength="14" />
+          <Property Name="externalPaxID" Type="nvarchar" MaxLength="25" />
+          <Property Name="couponNo" Type="nvarchar" MaxLength="2" />
+          <Property Name="pnrNo" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="distance" Type="bigint" />
+          <Property Name="baseFare" Type="float" />
+          <Property Name="discountBase" Type="float" />
+          <Property Name="exciseTax" Type="float" />
+          <Property Name="customerType" Type="nvarchar" MaxLength="1" />
+          <Property Name="promotionCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="ticketCurrency" Type="nvarchar" MaxLength="3" />
+          <Property Name="targetCurrency" Type="nvarchar" MaxLength="3" />
+          <Property Name="exchangeRate" Type="float" />
+          <Property Name="fareBasis" Type="nvarchar" MaxLength="10" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FR_Batch_Files">
+          <Key>
+            <PropertyRef Name="Header" />
+          </Key>
+          <Property Name="Header" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Footer" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Journey">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="IdentifierNo" Type="nvarchar" MaxLength="16" />
+          <Property Name="TicketNo" Type="nvarchar" MaxLength="14" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="30" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JourneySegment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="couponNo" Type="nvarchar" MaxLength="2" />
+          <Property Name="departureDate" Type="date" />
+          <Property Name="origin" Type="nvarchar" MaxLength="3" />
+          <Property Name="destination" Type="nvarchar" MaxLength="3" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketNo" Type="nvarchar" MaxLength="14" />
+          <Property Name="IDFR" Type="int" />
+        </EntityType>
+        <Association Name="FK_JourneySegment_Flight_Records">
+          <End Role="Flight_Records" Type="Self.Flight_Records" Multiplicity="0..1" />
+          <End Role="JourneySegment" Type="Self.JourneySegment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flight_Records">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JourneySegment">
+              <PropertyRef Name="IDFR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AerLingus_databaseModelStoreContainer">
+          <EntitySet Name="Flight_Records" EntityType="Self.Flight_Records" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FR_Batch_Files" EntityType="Self.FR_Batch_Files" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Journey" EntityType="Self.Journey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JourneySegment" EntityType="Self.JourneySegment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DeletedRecords" EntityType="Self.DeletedRecords" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DeletedRecords].[Datum] AS [Datum], 
+    [DeletedRecords].[Komentar] AS [Komentar], 
+    [DeletedRecords].[identfierNo] AS [identfierNo], 
+    [DeletedRecords].[transactionType] AS [transactionType], 
+    [DeletedRecords].[otherFFPNo] AS [otherFFPNo], 
+    [DeletedRecords].[otherFFPScheme] AS [otherFFPScheme], 
+    [DeletedRecords].[firstName] AS [firstName], 
+    [DeletedRecords].[lastName] AS [lastName], 
+    [DeletedRecords].[partnerTransactionNo] AS [partnerTransactionNo], 
+    [DeletedRecords].[bookingDate] AS [bookingDate], 
+    [DeletedRecords].[departureDate] AS [departureDate], 
+    [DeletedRecords].[origin] AS [origin], 
+    [DeletedRecords].[destination] AS [destination], 
+    [DeletedRecords].[bookingClass] AS [bookingClass], 
+    [DeletedRecords].[cabinClass] AS [cabinClass], 
+    [DeletedRecords].[marketingFlightNo] AS [marketingFlightNo], 
+    [DeletedRecords].[marketingAirline] AS [marketingAirline], 
+    [DeletedRecords].[operatingFlightNo] AS [operatingFlightNo], 
+    [DeletedRecords].[operatingAirline] AS [operatingAirline], 
+    [DeletedRecords].[ticketNo] AS [ticketNo], 
+    [DeletedRecords].[externalPaxID] AS [externalPaxID], 
+    [DeletedRecords].[couponNo] AS [couponNo], 
+    [DeletedRecords].[pnrNo] AS [pnrNo], 
+    [DeletedRecords].[distance] AS [distance], 
+    [DeletedRecords].[baseFare] AS [baseFare], 
+    [DeletedRecords].[discountBase] AS [discountBase], 
+    [DeletedRecords].[exciseTax] AS [exciseTax], 
+    [DeletedRecords].[customerType] AS [customerType], 
+    [DeletedRecords].[promotionCode] AS [promotionCode], 
+    [DeletedRecords].[ticketCurrency] AS [ticketCurrency], 
+    [DeletedRecords].[targetCurrency] AS [targetCurrency], 
+    [DeletedRecords].[exchangeRate] AS [exchangeRate], 
+    [DeletedRecords].[fareBasis] AS [fareBasis], 
+    [DeletedRecords].[IDDelete] AS [IDDelete]
+    FROM [dbo].[DeletedRecords] AS [DeletedRecords]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_JourneySegment_Flight_Records" Association="Self.FK_JourneySegment_Flight_Records">
+            <End Role="Flight_Records" EntitySet="Flight_Records" />
+            <End Role="JourneySegment" EntitySet="JourneySegment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AerLingus_databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Flight_Records">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="identifierNo" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="transactionType" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="otherFFPNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="otherFFPScheme" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="partnerTransactionNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="bookingDate" Type="DateTime" Precision="3" />
+          <Property Name="departureDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="origin" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="destination" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="bookingClass" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cabinClass" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="marketingFlightNo" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="marketingAirline" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="operatingFlightNo" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="operatingAirline" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ticketNo" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="externalPaxID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="couponNo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="pnrNo" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="distance" Type="Int64" />
+          <Property Name="baseFare" Type="Double" />
+          <Property Name="discountBase" Type="Double" />
+          <Property Name="exciseTax" Type="Double" />
+          <Property Name="customerType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="promotionCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ticketCurrency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="targetCurrency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="exchangeRate" Type="Double" />
+          <Property Name="fareBasis" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="JourneySegments" Relationship="Self.FK_JourneySegment_Flight_Records" FromRole="Flight_Records" ToRole="JourneySegment" />
+        </EntityType>
+        <EntityType Name="FR_Batch_Files">
+          <Key>
+            <PropertyRef Name="Header" />
+          </Key>
+          <Property Name="Header" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Footer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Journey">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="IdentifierNo" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="TicketNo" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="JourneySegment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="couponNo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="departureDate" Type="DateTime" Precision="0" />
+          <Property Name="origin" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="destination" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketNo" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="IDFR" Type="Int32" />
+          <NavigationProperty Name="Flight_Records" Relationship="Self.FK_JourneySegment_Flight_Records" FromRole="JourneySegment" ToRole="Flight_Records" />
+        </EntityType>
+        <EntityType Name="DeletedRecord">
+          <Key>
+            <PropertyRef Name="IDDelete" />
+          </Key>
+          <Property Name="Datum" Type="DateTime" Precision="3" />
+          <Property Name="Komentar" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="identfierNo" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="transactionType" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="otherFFPNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="otherFFPScheme" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="firstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="partnerTransactionNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="bookingDate" Type="DateTime" Precision="3" />
+          <Property Name="departureDate" Type="DateTime" Precision="0" />
+          <Property Name="origin" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="destination" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="bookingClass" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="cabinClass" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="marketingFlightNo" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="marketingAirline" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="operatingFlightNo" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="operatingAirline" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ticketNo" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="externalPaxID" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="couponNo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="pnrNo" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="distance" Type="Int64" />
+          <Property Name="baseFare" Type="Double" />
+          <Property Name="discountBase" Type="Double" />
+          <Property Name="exciseTax" Type="Double" />
+          <Property Name="customerType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="promotionCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ticketCurrency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="targetCurrency" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="exchangeRate" Type="Double" />
+          <Property Name="fareBasis" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IDDelete" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="FK_JourneySegment_Flight_Records">
+          <End Role="Flight_Records" Type="Self.Flight_Records" Multiplicity="0..1" />
+          <End Role="JourneySegment" Type="Self.JourneySegment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Flight_Records">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="JourneySegment">
+              <PropertyRef Name="IDFR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AerLingus_databaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Flight_Records" EntityType="Self.Flight_Records" />
+          <EntitySet Name="FR_Batch_Files" EntityType="Self.FR_Batch_Files" />
+          <EntitySet Name="Journeys" EntityType="Self.Journey" />
+          <EntitySet Name="JourneySegments" EntityType="Self.JourneySegment" />
+          <EntitySet Name="DeletedRecords" EntityType="Self.DeletedRecord" />
+          <AssociationSet Name="FK_JourneySegment_Flight_Records" Association="Self.FK_JourneySegment_Flight_Records">
+            <End Role="Flight_Records" EntitySet="Flight_Records" />
+            <End Role="JourneySegment" EntitySet="JourneySegments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AerLingus_databaseModelStoreContainer" CdmEntityContainer="AerLingus_databaseEntities">
+          <EntitySetMapping Name="Flight_Records">
+            <EntityTypeMapping TypeName="AerLingus_databaseModel.Flight_Records">
+              <MappingFragment StoreEntitySet="Flight_Records">
+                <ScalarProperty Name="identifierNo" ColumnName="identifierNo" />
+                <ScalarProperty Name="transactionType" ColumnName="transactionType" />
+                <ScalarProperty Name="otherFFPNo" ColumnName="otherFFPNo" />
+                <ScalarProperty Name="otherFFPScheme" ColumnName="otherFFPScheme" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="partnerTransactionNo" ColumnName="partnerTransactionNo" />
+                <ScalarProperty Name="bookingDate" ColumnName="bookingDate" />
+                <ScalarProperty Name="departureDate" ColumnName="departureDate" />
+                <ScalarProperty Name="origin" ColumnName="origin" />
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="bookingClass" ColumnName="bookingClass" />
+                <ScalarProperty Name="cabinClass" ColumnName="cabinClass" />
+                <ScalarProperty Name="marketingFlightNo" ColumnName="marketingFlightNo" />
+                <ScalarProperty Name="marketingAirline" ColumnName="marketingAirline" />
+                <ScalarProperty Name="operatingFlightNo" ColumnName="operatingFlightNo" />
+                <ScalarProperty Name="operatingAirline" ColumnName="operatingAirline" />
+                <ScalarProperty Name="ticketNo" ColumnName="ticketNo" />
+                <ScalarProperty Name="externalPaxID" ColumnName="externalPaxID" />
+                <ScalarProperty Name="couponNo" ColumnName="couponNo" />
+                <ScalarProperty Name="pnrNo" ColumnName="pnrNo" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="baseFare" ColumnName="baseFare" />
+                <ScalarProperty Name="discountBase" ColumnName="discountBase" />
+                <ScalarProperty Name="exciseTax" ColumnName="exciseTax" />
+                <ScalarProperty Name="customerType" ColumnName="customerType" />
+                <ScalarProperty Name="promotionCode" ColumnName="promotionCode" />
+                <ScalarProperty Name="ticketCurrency" ColumnName="ticketCurrency" />
+                <ScalarProperty Name="targetCurrency" ColumnName="targetCurrency" />
+                <ScalarProperty Name="exchangeRate" ColumnName="exchangeRate" />
+                <ScalarProperty Name="fareBasis" ColumnName="fareBasis" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FR_Batch_Files">
+            <EntityTypeMapping TypeName="AerLingus_databaseModel.FR_Batch_Files">
+              <MappingFragment StoreEntitySet="FR_Batch_Files">
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Footer" ColumnName="Footer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Journeys">
+            <EntityTypeMapping TypeName="AerLingus_databaseModel.Journey">
+              <MappingFragment StoreEntitySet="Journey">
+                <ScalarProperty Name="IdentifierNo" ColumnName="IdentifierNo" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JourneySegments">
+            <EntityTypeMapping TypeName="AerLingus_databaseModel.JourneySegment">
+              <MappingFragment StoreEntitySet="JourneySegment">
+                <ScalarProperty Name="couponNo" ColumnName="couponNo" />
+                <ScalarProperty Name="departureDate" ColumnName="departureDate" />
+                <ScalarProperty Name="origin" ColumnName="origin" />
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="IDFR" ColumnName="IDFR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DeletedRecords">
+            <EntityTypeMapping TypeName="AerLingus_databaseModel.DeletedRecord">
+              <MappingFragment StoreEntitySet="DeletedRecords">
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Komentar" ColumnName="Komentar" />
+                <ScalarProperty Name="identfierNo" ColumnName="identfierNo" />
+                <ScalarProperty Name="transactionType" ColumnName="transactionType" />
+                <ScalarProperty Name="otherFFPNo" ColumnName="otherFFPNo" />
+                <ScalarProperty Name="otherFFPScheme" ColumnName="otherFFPScheme" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="partnerTransactionNo" ColumnName="partnerTransactionNo" />
+                <ScalarProperty Name="bookingDate" ColumnName="bookingDate" />
+                <ScalarProperty Name="departureDate" ColumnName="departureDate" />
+                <ScalarProperty Name="origin" ColumnName="origin" />
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="bookingClass" ColumnName="bookingClass" />
+                <ScalarProperty Name="cabinClass" ColumnName="cabinClass" />
+                <ScalarProperty Name="marketingFlightNo" ColumnName="marketingFlightNo" />
+                <ScalarProperty Name="marketingAirline" ColumnName="marketingAirline" />
+                <ScalarProperty Name="operatingFlightNo" ColumnName="operatingFlightNo" />
+                <ScalarProperty Name="operatingAirline" ColumnName="operatingAirline" />
+                <ScalarProperty Name="ticketNo" ColumnName="ticketNo" />
+                <ScalarProperty Name="externalPaxID" ColumnName="externalPaxID" />
+                <ScalarProperty Name="couponNo" ColumnName="couponNo" />
+                <ScalarProperty Name="pnrNo" ColumnName="pnrNo" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="baseFare" ColumnName="baseFare" />
+                <ScalarProperty Name="discountBase" ColumnName="discountBase" />
+                <ScalarProperty Name="exciseTax" ColumnName="exciseTax" />
+                <ScalarProperty Name="customerType" ColumnName="customerType" />
+                <ScalarProperty Name="promotionCode" ColumnName="promotionCode" />
+                <ScalarProperty Name="ticketCurrency" ColumnName="ticketCurrency" />
+                <ScalarProperty Name="targetCurrency" ColumnName="targetCurrency" />
+                <ScalarProperty Name="exchangeRate" ColumnName="exchangeRate" />
+                <ScalarProperty Name="fareBasis" ColumnName="fareBasis" />
+                <ScalarProperty Name="IDDelete" ColumnName="IDDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

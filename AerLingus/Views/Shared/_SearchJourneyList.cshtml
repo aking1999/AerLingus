@@ -1,0 +1,47 @@
+﻿@model AerLingus.View_Models.SearchJourneyViewModel
+<div id="searchResults" class="col-md-6">
+    @if (ViewBag.A)
+    {
+        if (!Model.Journeys.Any())
+        {
+            <h2>No record matches search criteria.</h2>
+        }
+        else
+        {
+            <div class="lista">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th align="center">Info</th>
+                            <th align="center">Options</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        @foreach (var journey in Model.Journeys)
+                        {
+                            <tr>
+                                <td align="center">@Html.ActionLink(@journey.IdentifierNo + " | " + @journey.FirstName + " | " + @journey.LastName + " | " + @journey.TicketNo, "Details", new { id = journey.ID })</td>
+                                <td align="center">@Html.ActionLink("Segments", "JourneySegmentDetails", "Journey", new { id = journey.ID }, new { @class = "btn btn-success" })</td>
+                            </tr>
+                            @*<p class="hl">@Html.ActionLink(@journey.IdentifierNo + " | " + @journey.FirstName + " | " + @journey.LastName + " | " + @journey.TicketNo, "Details", "Journey", new { id = journey.ID })</p>
+                            <div class="row">*@
+                                @*<div class="col-md-1" id="EditDugme">
+                    @Html.ActionLink("Edit", "Edit", "Journey", new { id = journey.ID }, new { @class = "btn btn-success" })
+                </div>
+                <div class="col-md-1">
+                    @Html.ActionLink("Details", "Details", "Journey", new { id = journey.ID }, new { @class = "btn btn-success" })
+                </div>
+                <div class="col-md-1">
+                    @Html.ActionLink("Delete", "Delete", "Journey", new { id = journey.ID }, new { @class = "btn btn-success" })
+                </div>*@
+
+                                  @*@Html.ActionLink("Segments", "JourneySegmentDetails", "Journey", new { id = journey.ID }, new { @class = "btn btn-success" })*@
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    }
+</div>

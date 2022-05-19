@@ -1,0 +1,53 @@
+﻿@model AerLingus.Models.Journey
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Formular">
+
+    <h2 class="naslov">Edit Journey</h2>
+
+    @using (Html.BeginForm("EditJourney", "Journey", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+        @*@Html.AntiForgeryToken()*@
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.ID)
+
+            <div class="obaveznaPolja">
+                <div class="form-group">
+                    @Html.LabelFor(j => j.IdentifierNo)
+                    @Html.TextBoxFor(j => j.IdentifierNo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.IdentifierNo)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.FirstName)
+                    @Html.TextBoxFor(j => j.FirstName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.FirstName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.LastName)
+                    @Html.TextBoxFor(j => j.LastName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.LastName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.TicketNo)
+                    @Html.TextBoxFor(j => j.TicketNo, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(j => j.TicketNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Save</button>
+    }
+    <div>
+        @Html.ActionLink("Back to List", "SearchJourney", "Journey", new { @class = "btn btn-success" })
+    </div>
+
+</div>
+

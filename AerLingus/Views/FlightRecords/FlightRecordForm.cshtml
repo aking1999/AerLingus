@@ -1,0 +1,325 @@
+﻿@model AerLingus.Models.Flight_Records
+@using System.Web.Hosting;
+
+@{
+    ViewBag.Title = "FlightRecordForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/dropzone.min.css" rel="stylesheet" />
+<script src="~/Scripts/dropzone.min.js"></script>
+
+<div class="Formular">
+
+    <h2 class="naslov">Add a Flight Record</h2>
+
+    @using (Html.BeginForm("FlightRecordForm", "FlightRecords"))
+    {
+        //----------------------------------------------------------------------------------//
+        //REQUIRED
+     <div class="obaveznaPolja">
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.transactionType)
+            @Html.DropDownListFor(fr => fr.transactionType, new SelectList(ViewBag.list1, "Text", "Value"), "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.transactionType)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.firstName)
+            @Html.TextBoxFor(fr => fr.firstName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.firstName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.lastName)
+            @Html.TextBoxFor(fr => fr.lastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.lastName, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.departureDate)
+            <div class="form-group">
+                @*@Html.EditorFor(fr => fr.departureDate, new { htmlAttributes = new { @class = "datepicker1 form-control", type = "text", autocomplete = "off" } })*@
+                <input type="date" style="border: 1.25px solid #26aabd; border-radius: 5px; padding: 5px; width: 500px;" />
+            </div>
+            @Html.ValidationMessageFor(fr => fr.departureDate, "", new { id = "idValidacija" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.origin)
+            @Html.TextBoxFor(fr => fr.origin, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.origin, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.destination)
+            @Html.TextBoxFor(fr => fr.destination, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.destination, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.bookingClass)
+            @Html.TextBoxFor(fr => fr.bookingClass, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.bookingClass, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.marketingFlightNo)
+            @Html.TextBoxFor(fr => fr.marketingFlightNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.marketingFlightNo)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.marketingAirline)
+            @Html.TextBoxFor(fr => fr.marketingAirline, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.marketingAirline)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.operatingFlightNo)
+            @Html.TextBoxFor(fr => fr.operatingFlightNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.operatingFlightNo)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.operatingAirline)
+            @Html.TextBoxFor(fr => fr.operatingAirline, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.operatingAirline)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.ticketNo)
+            @Html.TextBoxFor(fr => fr.ticketNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.ticketNo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.externalPaxID)
+            @Html.TextBoxFor(fr => fr.externalPaxID, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.externalPaxID, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(fr => fr.pnrNo)
+            @Html.TextBoxFor(fr => fr.pnrNo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(fr => fr.pnrNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+        //----------------------------------------------------------------------//
+        //Non-Required
+     <div class="neobaveznaPolja">
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.identifierNo)
+             @Html.TextBoxFor(fr => fr.identifierNo, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.identifierNo, "", new { @class = "text-danger" })
+         </div>
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.otherFFPNo)
+             @Html.TextBoxFor(fr => fr.otherFFPNo, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.otherFFPNo, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.otherFFPScheme)
+             @Html.TextBoxFor(fr => fr.otherFFPScheme, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.otherFFPScheme, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.partnerTransactionNo)
+             @Html.TextBoxFor(fr => fr.partnerTransactionNo, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.partnerTransactionNo, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.bookingDate)
+             <div class="form-group">
+                 @*@Html.EditorFor(fr => fr.bookingDate, new { htmlAttributes = new { @class = "datepicker form-control", autocomplete = "off" } })*@
+                 <input type="date" style="border: 1.25px solid #26aabd; border-radius: 5px; padding: 5px; width: 500px;" />
+             </div>
+             @Html.ValidationMessageFor(fr => fr.bookingDate, "", new { id = "idValidacija" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.cabinClass)
+             @Html.TextBoxFor(fr => fr.cabinClass, new { @class = "form-control" })
+             @*@Html.DropDownListFor(fr => fr.cabinClass, new SelectList(ViewBag.list2, "Text", "Value"), new { @class = "form-control"})*@
+             @Html.ValidationMessageFor(fr => fr.cabinClass)
+         </div>
+
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.couponNo)
+             @Html.TextBoxFor(fr => fr.couponNo, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.couponNo, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.distance)
+             @Html.TextBoxFor(fr => fr.distance, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.distance, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.baseFare)
+             @Html.TextBoxFor(fr => fr.baseFare, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.baseFare, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.discountBase)
+             @Html.TextBoxFor(fr => fr.discountBase, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.discountBase, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.exciseTax)
+             @Html.TextBoxFor(fr => fr.exciseTax, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.exciseTax, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.customerType)
+             @Html.DropDownListFor(fr => fr.customerType, new SelectList(ViewBag.list3, "Text", "Value"), "", new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.customerType, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.promotionCode)
+             @Html.TextBoxFor(fr => fr.promotionCode, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.promotionCode, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.ticketCurrency)
+             @Html.DropDownListFor(fr => fr.ticketCurrency, new SelectList(ViewBag.list4), "", new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.ticketCurrency, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.targetCurrency)
+             @Html.DropDownListFor(fr => fr.targetCurrency, new SelectList(ViewBag.list4), "", new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.targetCurrency, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.exchangeRate)
+             @Html.TextBoxFor(fr => fr.exchangeRate, new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.exchangeRate, "", new { @class = "text-danger" })
+         </div>
+
+         <div class="form-group">
+             @Html.LabelFor(fr => fr.fareBasis)
+             @Html.DropDownListFor(fr => fr.fareBasis, new SelectList(ViewBag.list4), "", new { @class = "form-control" })
+             @Html.ValidationMessageFor(fr => fr.fareBasis, "", new { @class = "text-danger" })
+         </div>
+     </div>
+        //-----------------------------------------------------------//
+
+        <button type="submit" class="btn btn-success">Save</button>
+    }
+
+</div>
+
+<div class="Upload">
+    <div class="row">
+        <div class="col-md-6" id="fileupload">
+            <form action="http://localhost:54789/FlightRecords/Upload" method="post" name="file" enctype="multipart/form-data">
+                <h3 class="drugiNaslov">Choose a file to upload</h3>
+                <div class="form-group" id="browse">
+                    <input type="file" accept=".csv" name="file" id="file" required />
+                </div>
+                <div class="form-group" id="uploadSubmit">
+                    <input type="submit" id="dugmeSubmit" title="Submit" name="file"/>
+                </div>
+            </form>
+        </div>
+
+        <div id="mydrop" class="col-md-6" id="draganddrop">
+            <form action="DragAndDrop" class="dropzone" id="dropzoneform" style="background-color:#E3FCFF;border:dashed">
+                <div>
+                    <button class="form-control btn btn-info" type="submit" style="position:absolute;left:5%;right:5%;bottom:2%;top:75%; width:90%;">Save</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+@section scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+    @*<script>
+            $(function () {
+                $(".datepicker").datepicker({
+                    dateFormat: "yy-mm-dd",
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-10:+10",
+                    showOn: "both",
+                    timeFormat:"HH:mm:ss",
+                    buttonText: "<i class='fa fa-calendar' style='font - size:74x'></i>"
+
+                })
+            })
+        </script>*@
+    <script>
+        $(function () {
+            $(".datepicker1").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-10:+10",
+                showOn: "both",
+                buttonText: "<i class='fa fa-calendar' style='font - size:74x'></i>"
+
+            })
+        })
+    </script>
+
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(function () {
+                $(".datepicker").datetimepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: "-10:+10",
+                    dateFormat: 'yy-mm-dd',
+                    controlType: 'select',
+                    showOn: "both",
+                    buttonText: "<i class='fa fa-calendar' style='font - size:74x'></i>",
+                    timeFormat: 'HH:mm:ss'
+
+                });
+
+            });
+
+            jQuery.validator.methods.date = function (value, element) {
+                var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                if (isChrome) {
+                    var d = new Date();
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                } else {
+                    return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                }
+            };
+
+        });
+
+    </script>
+}

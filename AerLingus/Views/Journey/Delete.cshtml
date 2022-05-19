@@ -1,0 +1,27 @@
+﻿@model AerLingus.Models.Journey
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Record:</h2>
+<p>Identifier Number: @(Model.IdentifierNo == null ? "-" : Model.IdentifierNo)</p>
+<p>First Name: @Model.FirstName</p>
+<p>Last Name: @Model.LastName</p>
+<p>Ticket Number: @(Model.TicketNo == null ? "-" : Model.TicketNo)</p>
+
+@using(Html.BeginForm("DeleteJourney", "Journey", FormMethod.Post))
+{
+    @Html.HiddenFor(id => id.ID)
+    <textarea name="komentar" id="komentar" cols="30" rows="10"></textarea><br />
+    <input type="submit" name="Delete" value="Delete" class="btn btn-primary" />
+}
+
+@*<div class="row">
+    <div class="col-sm-1">
+        @Html.ActionLink("Delete", "DeleteJourney", "Journey", new { id = Model.ID }, new { @class = "btn btn-success", style = "width:90px" })
+    </div>
+    <div class="col-sm-1">
+        @Html.ActionLink("Back to List", "SearchJourney", "Journey", new object(), new { @class = "btn btn-success" })
+    </div>
+</div>*@

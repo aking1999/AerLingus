@@ -1,0 +1,56 @@
+﻿@model AerLingus.View_Models.SearchJourneyViewModel
+@{
+    ViewBag.Title = "SearchJourney";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <h2 class="naslov", style="padding-left:18px;"> Search Journey </h2>
+
+    <div class="col-md-5", style="width:350px">
+        @using (Ajax.BeginForm("GetSearchedJourneys", "Journey", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "searchResults" }))
+        {
+            <div class="obaveznaPolja">
+                <h4>@Html.ValidationSummary(false, "", new { @class = "text-danger" })</h4>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.SearchJourney.identifierNo)
+                    @Html.TextBoxFor(j => j.SearchJourney.identifierNo, new { @class = "form-control", style = "width:300px" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.SearchJourney.firstName)
+                    @Html.TextBoxFor(j => j.SearchJourney.firstName, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.SearchJourney.lastName)
+                    @Html.TextBoxFor(j => j.SearchJourney.lastName, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(j => j.SearchJourney.ticketNo)
+                    @Html.TextBoxFor(j => j.SearchJourney.ticketNo, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div>
+                <br />
+            </div>
+
+            <input type="submit" class="btn btn-success" name="Submit" value="Submit" />
+        }
+    </div>
+
+  
+    <div id="searchResults" class="col-md-6">
+
+    </div>
+</div>
+
+@section scripts
+    {
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    }
